@@ -1,0 +1,594 @@
+/* ==========================================================================
+   KHOA CÔNG NGHỆ THÔNG TIN — ĐẠI HỌC CÔNG NGHIỆP TP.HCM (IUH)
+   Học phần: Web Multimedia | Sinh viên: Vũ Hoàng Phát - MSSV: 21143011
+   Tệp định kiểu duy nhất: site.css (Chuẩn Responsive Mobile-First, WCAG AA)
+   ========================================================================== */
+
+/* 1. RESET VÀ THIẾT LẬP CƠ BẢN */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #1F4E79;       /* Xanh Navy chủ đạo IUH - WCAG AA tương phản cao */
+  --primary-dark: #123352;  /* Xanh Navy đậm */
+  --primary-light: #E0F2FE; /* Xanh nhạt nền */
+  --accent: #D97706;        /* Cam hổ phách nổi bật */
+  --accent-light: #FEF3C7;  /* Vàng nhạt Podcast */
+  --text-main: #0F172A;     /* Xám đen chữ chính (contrast 14:1 trên nền trắng) */
+  --text-muted: #475569;    /* Xám trung tính (contrast 5.8:1) */
+  --bg-body: #F8FAFC;       /* Nền trang sáng dịu mắt */
+  --bg-surface: #FFFFFF;    /* Nền thẻ nội dung */
+  --border-color: #CBD5E1;  /* Viền xám mảnh */
+  --radius: 8px;            /* Bo góc chuẩn */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #0369A1;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover, a:focus {
+  color: var(--primary-dark);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #2563EB;
+  outline-offset: 3px;
+}
+
+/* 2. HEADER VÀ THANH ĐIỀU HƯỚNG CHÍNH (<nav>) */
+.site-header {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: none; /* Mặc định ẩn trên mobile, toggle qua JS */
+  width: 100%;
+  list-style: none;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-menu.is-active {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  color: #E0F2FE;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a[aria-current="page"] {
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* 3. BREADCRUMB PHÂN CẤP */
+.breadcrumb-container {
+  background-color: #EEF2F6;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.6rem 1rem;
+}
+
+.breadcrumb-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-list li + li::before {
+  content: "›";
+  margin-right: 0.5rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-list a {
+  text-decoration: none;
+  color: #0369A1;
+}
+
+.breadcrumb-list a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-list [aria-current="page"] {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* 4. MAIN CONTAINER & HERO BANNER */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.hero-banner {
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--primary);
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.hero-caption {
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
+  padding: 1rem 1.25rem;
+  text-align: center;
+}
+
+.hero-caption h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.hero-caption p {
+  font-size: 0.95rem;
+  color: #BAE6FD;
+}
+
+/* 5. KHU VỰC ĐA PHƯƠNG TIỆN (MEDIA SECTION: VIDEO & AUDIO) */
+.media-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.video-card, .audio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 0.6rem;
+}
+
+/* Trình phát Video 16:9 Responsive */
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.video-player-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thanh điều khiển Video tùy biến bằng JS */
+.custom-video-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #1E293B;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  color: #FFFFFF;
+}
+
+.btn-media {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 40px;
+  min-width: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-media:hover {
+  background-color: #1D4ED8;
+}
+
+.progress-container {
+  flex: 1;
+  height: 8px;
+  background-color: #475569;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background-color: #38BDF8;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: #E2E8F0;
+  min-width: 75px;
+  text-align: right;
+}
+
+/* Audio Podcast Box */
+.audio-card {
+  background-color: #F8FAFC;
+  border-left: 5px solid var(--accent);
+}
+
+.audio-card audio {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+}
+
+/* 6. LƯỚI NGÀNH HỌC / THƯ VIỆN BÀI VIẾT (CSS GRID) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.feature-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card figure {
+  margin: 0;
+  background-color: #E2E8F0;
+}
+
+.feature-card figcaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.75rem;
+  background-color: #F1F5F9;
+}
+
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.btn-card {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.btn-card:hover {
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
+}
+
+/* 7. AJAX FETCH NỘI DUNG MỞ RỘNG (TÍNH NĂNG CỘNG ĐIỂM) */
+.ajax-section {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.ajax-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ajax-item {
+  display: flex;
+  gap: 1rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 0.75rem;
+  align-items: center;
+}
+
+.ajax-thumb {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.btn-loadmore {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 1.25rem auto 0;
+  background-color: #0369A1;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-loadmore:hover {
+  background-color: #0284C7;
+}
+
+/* 8. SƠ ĐỒ SITE (SITEMAP HTML) */
+.sitemap-tree {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.sitemap-tree ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.sitemap-tree li {
+  margin-bottom: 0.4rem;
+}
+
+/* 9. FOOTER TOÀN SITE */
+.site-footer {
+  background-color: #1E293B;
+  color: #E2E8F0;
+  padding: 2.5rem 1rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.footer-col h3 {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.footer-col p, .footer-col li {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col a {
+  color: #93C5FD;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid #334155;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES (RESPONSIVE CHO TABLET & DESKTOP)
+   ========================================================================== */
+
+/* Điểm gãy 1: Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none; /* Ẩn nút hamburger trên Tablet trở lên */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    gap: 0.5rem;
+  }
+
+  .hero-caption h1 {
+    font-size: 1.8rem;
+  }
+
+  .media-section {
+    flex-direction: row;
+  }
+
+  .video-card {
+    flex: 1.6;
+  }
+
+  .audio-card {
+    flex: 1;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Điểm gãy 2: Desktop (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .hero-caption h1 {
+    font-size: 2.2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ajax-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 11. HỖ TRỢ PREFERS-REDUCED-MOTION (ACCESSIBILITY WCAG) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
