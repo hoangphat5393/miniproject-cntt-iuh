@@ -1,0 +1,34 @@
+[
+  {
+    "id": "med-01",
+    "title": "Hội thảo Công nghệ Trí tuệ Nhân tạo & Generative AI 2026",
+    "duration": "04:35",
+    "type": "Video Full HD",
+    "thumb": "img/card_khmt.webp",
+    "desc": "Chia sẻ từ các chuyên gia đầu ngành về xu hướng mô hình ngôn ngữ lớn và ứng dụng thực tiễn."
+  },
+  {
+    "id": "med-02",
+    "title": "Chung kết Cuộc thi Lập trình Phần mềm Sáng tạo IUH Hackathon",
+    "duration": "06:12",
+    "type": "Video Full HD",
+    "thumb": "img/card_ktpm.webp",
+    "desc": "Các dự án công nghệ xuất sắc của sinh viên giải quyết bài toán giao thông và y tế thông minh."
+  },
+  {
+    "id": "med-03",
+    "title": "Podcast số 02: Kỹ năng sinh viên CNTT cần trang bị trước khi thực tập",
+    "duration": "12:40",
+    "type": "Audio MP3",
+    "thumb": "img/card_attt.webp",
+    "desc": "Đối thoại cùng cựu sinh viên đang làm việc tại các tập đoàn công nghệ đa quốc gia."
+  },
+  {
+    "id": "med-04",
+    "title": "Lễ Ký kết Hợp tác Doanh nghiệp và Ngày hội Việc làm IT Day",
+    "duration": "03:50",
+    "type": "Video 720p",
+    "thumb": "img/card_httt.webp",
+    "desc": "Hơn 50 doanh nghiệp hàng đầu phỏng vấn tuyển dụng trực tiếp sinh viên năm cuối."
+  }
+]
