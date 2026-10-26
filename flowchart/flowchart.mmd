@@ -1,0 +1,26 @@
+graph TD
+    classDef root fill:#1F4E79,stroke:#0F273D,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef level1 fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1,font-weight:bold;
+    classDef level2 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E,font-weight:bold;
+    classDef sitemap fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155;
+
+    Root["🏠 TRANG CHỦ<br/><code>index.html</code><br/><i>(0 click)</i>"]:::root
+
+    About["🏛️ GIỚI THIỆU KHOA<br/><code>about.html</code><br/><i>(1 click)</i>"]:::level1
+    Prog["🎓 NGÀNH ĐÀO TẠO<br/><code>programs.html</code><br/><i>(1 click)</i>"]:::level1
+    Gallery["🎥 THƯ VIỆN MEDIA<br/><code>gallery.html</code><br/><i>(1 click)</i>"]:::level1
+    Act["⚡ ĐỜI SỐNG SV & CLB<br/><code>activities.html</code><br/><i>(1 click)</i>"]:::level1
+    Sitemap["🗺️ SƠ ĐỒ SITE<br/><code>sitemap.html</code><br/><i>(1 click)</i>"]:::sitemap
+
+    Detail["🎬 CHI TIẾT VIDEO LAB<br/><code>video-detail.html</code><br/><i>(2 clicks &le; 3)</i>"]:::level2
+
+    Root -->|1 click| About
+    Root -->|1 click| Prog
+    Root -->|1 click| Gallery
+    Root -->|1 click| Act
+    Root -->|1 click| Sitemap
+
+    Gallery -->|2 clicks| Detail
+
+    Detail -.->|1 click về Home| Root
+    About -.->|1 click về Home| Root

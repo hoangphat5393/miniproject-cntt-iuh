@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sơ Đồ Site (Site Flowchart) - Khoa CNTT — IUH</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 30px;
+      background: #f4f6f9;
+      color: #333;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1f4e79;
+      margin-top: 0;
+      font-size: 24px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      background: #e0f2fe;
+      color: #0369a1;
+      margin-bottom: 20px;
+    }
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .rules-card {
+      background: #f8fafc;
+      border-left: 4px solid #1f4e79;
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 25px;
+    }
+    .rules-card h3 {
+      margin-top: 0;
+      color: #1e293b;
+      font-size: 16px;
+    }
+    .rules-card ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">Học phần: Hệ Thống Đa Phương Tiện — Tuần 9</div>
+    <h1>SƠ ĐỒ SITE VÀ KIẾN TRÚC ĐIỀU HƯỚNG (SITE FLOWCHART)</h1>
+    <p><strong>Dự án:</strong> Khoa CNTT — IUH</p>
+    <p><strong>Sinh viên thực hiện:</strong> Vũ Hoàng Phát — <strong>MSSV:</strong> 21143011</p>
+
+    <div class="mermaid">
+graph TD
+    classDef root fill:#1F4E79,stroke:#0F273D,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef level1 fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1,font-weight:bold;
+    classDef level2 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E,font-weight:bold;
+    classDef sitemap fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#334155;
+
+    Root["🏠 TRANG CHỦ<br/><code>index.html</code><br/><i>(0 click)</i>"]:::root
+
+    About["🏛️ GIỚI THIỆU KHOA<br/><code>about.html</code><br/><i>(1 click)</i>"]:::level1
+    Prog["🎓 NGÀNH ĐÀO TẠO<br/><code>programs.html</code><br/><i>(1 click)</i>"]:::level1
+    Gallery["🎥 THƯ VIỆN MEDIA<br/><code>gallery.html</code><br/><i>(1 click)</i>"]:::level1
+    Act["⚡ ĐỜI SỐNG SV & CLB<br/><code>activities.html</code><br/><i>(1 click)</i>"]:::level1
+    Sitemap["🗺️ SƠ ĐỒ SITE<br/><code>sitemap.html</code><br/><i>(1 click)</i>"]:::sitemap
+
+    Detail["🎬 CHI TIẾT VIDEO LAB<br/><code>video-detail.html</code><br/><i>(2 clicks &le; 3)</i>"]:::level2
+
+    Root -->|1 click| About
+    Root -->|1 click| Prog
+    Root -->|1 click| Gallery
+    Root -->|1 click| Act
+    Root -->|1 click| Sitemap
+
+    Gallery -->|2 clicks| Detail
+
+    Detail -.->|1 click về Home| Root
+    About -.->|1 click về Home| Root
+    </div>
+
+    <div class="rules-card">
+      <h3>CHỨNG MINH QUY TẮC ĐIỀU HƯỚNG (MORLEY & PARKER)</h3>
+      <ul>
+        <li><strong>Quy tắc 3 lần nhấp chuột (Rule of 3 Clicks):</strong> Mọi trang trong sơ đồ trên đều có thể chạm đến trong tối đa 2 lần nhấp chuột từ Trang chủ (Cấp 0 &rarr; Cấp 1: 1 click; Cấp 0 &rarr; Cấp 2: 2 click).</li>
+        <li><strong>Đường quay về Trang chủ:</strong> Mọi trang đều có liên kết cố định trên Logo và nút "Trang chủ" để trở về <code>index.html</code> chỉ trong 1 click duy nhất.</li>
+        <li><strong>Chỉ số trang hiện hành:</strong> Nhận diện trang đang mở bằng thuộc tính ngữ nghĩa <code>aria-current="page"</code> kết hợp màu nhấn nổi bật.</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      flowchart: {
+        curve: 'basis',
+        htmlLabels: true
+      }
+    });
+  </script>
+</body>
+</html>

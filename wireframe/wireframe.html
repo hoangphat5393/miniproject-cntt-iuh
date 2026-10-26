@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Vẽ Wireframe Tương Tác - Khoa CNTT — IUH</title>
+  <style>
+    :root {
+      --primary: #1F4E79;
+      --accent: #0284C7;
+      --wire-bg: #F1F5F9;
+      --wire-border: #94A3B8;
+      --wire-box: #E2E8F0;
+      --wire-text: #475569;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #0F172A;
+      color: #E2E8F0;
+    }
+    .top-bar {
+      max-width: 1300px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      background: #1E293B;
+      padding: 15px 25px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+    }
+    .title-area h1 {
+      margin: 0;
+      font-size: 18px;
+      color: #38BDF8;
+    }
+    .title-area p {
+      margin: 4px 0 0 0;
+      font-size: 13px;
+      color: #94A3B8;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-toggle {
+      background: #334155;
+      color: #F8FAFC;
+      border: 1px solid #475569;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .btn-toggle:hover {
+      background: #475569;
+    }
+    .btn-toggle.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #FFF;
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.4);
+    }
+    
+    /* Viewport Simulator Frame */
+    .viewport-wrapper {
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-bottom: 40px;
+    }
+    .device-screen {
+      background: #FFFFFF;
+      color: #1E293B;
+      border: 3px solid var(--wire-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      transition: width 0.3s ease;
+      width: 1200px; /* Default desktop */
+    }
+    
+    /* Wireframe Skeleton Styles */
+    .wf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: var(--wire-box);
+      border-bottom: 2px dashed var(--wire-border);
+    }
+    .wf-logo {
+      width: 140px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+    .wf-nav {
+      display: flex;
+      gap: 15px;
+    }
+    .wf-nav-item {
+      height: 16px;
+      background: #CBD5E1;
+      border-radius: 3px;
+      width: 70px;
+    }
+    .wf-hamburger {
+      display: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--wire-text);
+    }
+
+    .wf-hero {
+      height: 240px;
+      background: #E2E8F0;
+      border-bottom: 2px dashed var(--wire-border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .wf-cross {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        linear-gradient(to top right, transparent calc(50% - 1px), #CBD5E1, transparent calc(50% + 1px)),
+        linear-gradient(to bottom right, transparent calc(50% - 1px), #CBD5E1, transparent calc(50% + 1px));
+      opacity: 0.6;
+    }
+    .wf-hero-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.9);
+      padding: 15px 25px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+    }
+    .wf-hero-content h2 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .wf-hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      background: #E0F2FE;
+      color: #0369A1;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .wf-section {
+      padding: 20px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .wf-section-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--wire-text);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Media Row (2 cols) */
+    .wf-media-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 15px;
+    }
+    .wf-video-box {
+      aspect-ratio: 16 / 9;
+      background: #334155;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      position: relative;
+    }
+    .wf-play-btn {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+      border: 2px solid white;
+    }
+    .wf-video-label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .wf-audio-box {
+      background: #F8FAFC;
+      border: 2px dashed #CBD5E1;
+      border-radius: 6px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    /* Cards Grid */
+    .wf-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+    .wf-card {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .wf-card-img {
+      height: 100px;
+      background: #E2E8F0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #64748B;
+    }
+    .wf-card-body {
+      padding: 10px;
+    }
+    .wf-card-title {
+      font-weight: bold;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: #1E293B;
+    }
+    .wf-card-desc {
+      font-size: 11px;
+      color: #64748B;
+      line-height: 1.4;
+    }
+
+    .wf-footer {
+      background: #1E293B;
+      color: #94A3B8;
+      padding: 20px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* RESPONSIVE TOGGLES VIA JAVASCRIPT WIDTH */
+    .device-screen.mode-mobile {
+      width: 360px !important;
+    }
+    .device-screen.mode-mobile .wf-nav { display: none; }
+    .device-screen.mode-mobile .wf-hamburger { display: block; }
+    .device-screen.mode-mobile .wf-hero { height: 180px; }
+    .device-screen.mode-mobile .wf-media-grid { grid-template-columns: 1fr; }
+    .device-screen.mode-mobile .wf-cards-grid { grid-template-columns: 1fr; }
+    .device-screen.mode-mobile .wf-footer { flex-direction: column; gap: 10px; text-align: center; }
+
+    .device-screen.mode-tablet {
+      width: 768px !important;
+    }
+    .device-screen.mode-tablet .wf-media-grid { grid-template-columns: 1fr; }
+    .device-screen.mode-tablet .wf-cards-grid { grid-template-columns: 1fr 1fr; }
+
+    .device-screen.mode-desktop {
+      width: 1200px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="title-area">
+      <h1>BẢN VẼ BỐ CỤC KHUNG DÂY WIREFRAME (A3) — TƯƠNG TÁC ĐÁP ỨNG</h1>
+      <p>Dự án: <strong>Khoa CNTT — IUH</strong> | Sinh viên: Vũ Hoàng Phát (MSSV: 21143011)</p>
+    </div>
+    <div class="btn-group">
+      <button class="btn-toggle" onclick="setMode('mobile')">📱 Mobile (360px)</button>
+      <button class="btn-toggle" onclick="setMode('tablet')">📱 Tablet (768px)</button>
+      <button class="btn-toggle active" onclick="setMode('desktop')">💻 Desktop (1200px)</button>
+    </div>
+  </div>
+
+  <div class="viewport-wrapper">
+    <div id="screen" class="device-screen mode-desktop">
+      
+      <!-- HEADER -->
+      <div class="wf-header">
+        <div class="wf-logo">LOGO TRƯỜNG & KHOA</div>
+        <div class="wf-nav">
+          <div class="wf-nav-item"></div>
+          <div class="wf-nav-item"></div>
+          <div class="wf-nav-item"></div>
+          <div class="wf-nav-item"></div>
+        </div>
+        <div class="wf-hamburger">☰</div>
+      </div>
+
+      <!-- HERO BANNER -->
+      <div class="wf-hero">
+        <div class="wf-cross"></div>
+        <div class="wf-hero-content">
+          <span class="wf-hero-badge">Banner Hero WebP (1200 x 450 px)</span>
+          <h2>CHÀO ĐÓN TÂN SINH VIÊN K22 — KHOA CNTT IUH</h2>
+          <div style="font-size:12px; color:#64748B;">Khẩu hiệu & Nút hành động kêu gọi (Call to action)</div>
+        </div>
+      </div>
+
+      <!-- MEDIA SECTION -->
+      <div class="wf-section">
+        <div class="wf-section-title">
+          <span>🎬</span> KHU VỰC ĐA PHƯƠNG TIỆN CỐT LÕI (MEDIA SHOWCASE)
+        </div>
+        <div class="wf-media-grid">
+          <div class="wf-video-box">
+            <div class="wf-play-btn">▶</div>
+            <div class="wf-video-label">Khung Video HTML5 (Tỷ lệ 16:9 - aspect-ratio: 16/9)</div>
+            <div style="font-size:10px; color:#CBD5E1; margin-top:4px;">MP4 + WebM | Có phụ đề subtitles_vi.vtt</div>
+          </div>
+          <div class="wf-audio-box">
+            <div>
+              <div style="font-weight:bold; font-size:13px; color:var(--primary); margin-bottom:6px;">📻 Podcast / Audio Phát thanh số</div>
+              <div style="font-size:11px; color:#64748B;">Nội dung âm thanh giới thiệu chuyên đề kèm thanh điều khiển tùy biến.</div>
+            </div>
+            <div style="height:36px; background:#E2E8F0; border-radius:18px; display:flex; align-items:center; padding:0 12px; gap:8px;">
+              <span style="font-size:14px; color:var(--primary);">▶</span>
+              <div style="flex:1; height:4px; background:#CBD5E1; border-radius:2px;"></div>
+              <span style="font-size:10px; color:#64748B;">02:15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARDS SECTION -->
+      <div class="wf-section">
+        <div class="wf-section-title">
+          <span>📂</span> NỘI DUNG CHUYÊN ĐỀ (CSS GRID: 1 COL MOBILE &rarr; 2 COLS TABLET &rarr; 4 COLS DESKTOP)
+        </div>
+        <div class="wf-cards-grid">
+          <div class="wf-card">
+            <div class="wf-card-img">[Ảnh WebP 400x250]</div>
+            <div class="wf-card-body">
+              <div class="wf-card-title">Kỹ thuật Phần mềm</div>
+              <div class="wf-card-desc">Chương trình chuẩn kiểm định quốc tế AUN-QA</div>
+            </div>
+          </div>
+          <div class="wf-card">
+            <div class="wf-card-img">[Ảnh WebP 400x250]</div>
+            <div class="wf-card-body">
+              <div class="wf-card-title">Khoa học Máy tính</div>
+              <div class="wf-card-desc">Trí tuệ nhân tạo (AI) và Khoa học dữ liệu</div>
+            </div>
+          </div>
+          <div class="wf-card">
+            <div class="wf-card-img">[Ảnh WebP 400x250]</div>
+            <div class="wf-card-body">
+              <div class="wf-card-title">An toàn Thông tin</div>
+              <div class="wf-card-desc">Bảo mật mạng, Điện toán đám mây</div>
+            </div>
+          </div>
+          <div class="wf-card">
+            <div class="wf-card-img">[Ảnh WebP 400x250]</div>
+            <div class="wf-card-body">
+              <div class="wf-card-title">Hệ thống Thông tin</div>
+              <div class="wf-card-desc">Chuyển đổi số và Quản trị dữ liệu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="wf-footer">
+        <div>&copy; 2026 Bản quyền thuộc về Vũ Hoàng Phát (21143011) — IUH</div>
+        <div>Liên kết: Trang chủ | Sơ đồ site (sitemap.html) | Liên hệ</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function setMode(mode) {
+      const screen = document.getElementById('screen');
+      screen.className = 'device-screen mode-' + mode;
+      
+      document.querySelectorAll('.btn-toggle').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
