@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Khoa Công nghệ Thông tin - Trường Đại học Công nghiệp TP.HCM (IUH): Cổng tuyển sinh, đào tạo và hoạt động sinh viên đa phương tiện.">
+  <title>Khoa Công nghệ Thông tin — Đại học Công nghiệp TP.HCM</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <!-- 1. HEADER CHÍNH & ĐIỀU HƯỚNG -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-link" aria-label="Trang chủ Khoa CNTT IUH">
+        <img src="img/logo_iuh.svg" alt="Logo Khoa Công nghệ Thông tin IUH" class="brand-logo" width="280" height="60">
+      </a>
+      <button class="nav-toggle" aria-label="Mở menu điều hướng" aria-expanded="false">☰</button>
+      <nav aria-label="Điều hướng chính của trang">
+        <ul class="nav-menu">
+          <li><a href="index.html" aria-current="page">Trang chủ</a></li>
+          <li><a href="nganh-hoc.html">Ngành đào tạo</a></li>
+          <li><a href="video-detail.html">Thư viện Media</a></li>
+          <li><a href="sitemap.html">Sơ đồ site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. BREADCRUMB PHÂN CẤP -->
+  <div class="breadcrumb-container" aria-label="Đường dẫn phân cấp">
+    <ol class="breadcrumb-list">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li aria-current="page">Tổng quan tuyển sinh</li>
+    </ol>
+  </div>
+
+  <!-- 3. NỘI DUNG CHÍNH (MAIN) -->
+  <main class="main-content">
+
+    <!-- HERO BANNER VỚI ẢNH ĐÁP ỨNG PICTURE (3 KÍCH THƯỚC) -->
+    <section class="hero-banner" aria-labelledby="hero-title">
+      <picture>
+        <source media="(min-width: 1200px)" srcset="img/banner_hero_1200w.webp">
+        <source media="(min-width: 768px)" srcset="img/banner_hero_800w.webp">
+        <img src="img/banner_hero_400w.webp" alt="Khuôn viên hiện đại và sinh viên Khoa Công nghệ Thông tin IUH" width="1200" height="450" fetchpriority="high">
+      </picture>
+      <div class="hero-caption">
+        <h1 id="hero-title">Chào đón Tân sinh viên K22 — Khoa CNTT IUH</h1>
+        <p>Tiên phong trong đào tạo công nghệ phần mềm, trí tuệ nhân tạo và an toàn thông tin chuẩn quốc tế AUN-QA.</p>
+      </div>
+    </section>
+
+    <!-- KHU VỰC ĐA PHƯƠNG TIỆN (VIDEO & AUDIO PODCAST) -->
+    <section class="media-section" aria-label="Khu vực Đa phương tiện nổi bật">
+      
+      <!-- Cột Trái: Trình phát Video HTML5 tùy biến -->
+      <article class="video-card">
+        <h2 class="section-title">Khám phá Phòng Lab Thực hành IoT &amp; AI</h2>
+        <div class="video-player-wrapper">
+          <video id="mainVideo" poster="img/poster_video.webp" preload="metadata" playsinline>
+            <source src="video/intro_lab.mp4" type="video/mp4">
+            <source src="video/intro_lab.webm" type="video/webm">
+            <track src="media/subtitles_vi.vtt" kind="subtitles" srclang="vi" label="Tiếng Việt" default>
+            Trình duyệt của bạn không hỗ trợ thẻ video HTML5. Vui lòng nâng cấp trình duyệt.
+          </video>
+        </div>
+
+        <!-- Điều khiển JavaScript tùy biến -->
+        <div class="custom-video-controls" role="region" aria-label="Thanh điều khiển video">
+          <button id="btnPlayPause" class="btn-media" aria-label="Phát hoặc tạm dừng video">▶ Phát</button>
+          <div class="progress-container" id="progressWrap" role="progressbar" aria-label="Tiến độ video" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div id="pBarFill" class="progress-bar-fill"></div>
+          </div>
+          <span id="timeText" class="time-display" aria-live="off">00:00 / 00:00</span>
+        </div>
+        <p style="font-size:0.875rem; color:#475569; margin-top:0.75rem;">
+          Video giới thiệu không gian phòng thí nghiệm AI, IoT và trung tâm dữ liệu phục vụ nghiên cứu và học tập.
+          <a href="video-detail.html">Xem chi tiết bài viết &amp; tương tác &raquo;</a>
+        </p>
+      </article>
+
+      <!-- Cột Phải: Podcast Phát thanh số -->
+      <aside class="audio-card" aria-labelledby="podcast-title">
+        <h2 id="podcast-title" class="section-title">Podcast: Định hướng Nghề nghiệp IT</h2>
+        <p style="font-size:0.875rem; color:#475569;">
+          Lắng nghe các giảng viên và chuyên gia doanh nghiệp giải đáp cơ hội việc làm, mức lương khởi điểm và kỹ năng mềm sinh viên công nghệ cần trang bị.
+        </p>
+        <audio controls preload="none">
+          <source src="audio/podcast_huongnghiep.mp3" type="audio/mpeg">
+          Trình duyệt của bạn không hỗ trợ thẻ phát âm thanh HTML5.
+        </audio>
+        <div style="margin-top:1rem; font-size:0.825rem; color:#64748B;">
+          <strong>Chủ đề số 01:</strong> <em>"Từ sinh viên năm nhất đến kỹ sư DevOps quốc tế"</em> (Thời lượng: 12 phút).
+        </div>
+      </aside>
+
+    </section>
+
+    <!-- 4 NGÀNH ĐÀO TẠO MŨI NHỌN (CSS GRID DÁP ỨNG) -->
+    <section aria-labelledby="majors-title">
+      <h2 id="majors-title" class="section-title">4 Ngành Đào tạo Mũi nhọn (Chuẩn Kiểm định Quốc tế AUN-QA)</h2>
+      <div class="cards-grid">
+        
+        <article class="feature-card">
+          <figure>
+            <img src="img/card_ktpm.webp" alt="Sinh viên Kỹ thuật Phần mềm lập trình ứng dụng" width="400" height="260" loading="lazy">
+            <figcaption>Mã ngành: 7480103 | Chỉ tiêu: 450</figcaption>
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Kỹ thuật Phần mềm</h3>
+            <p class="card-desc">Đào tạo kỹ sư chuyên sâu về thiết kế kiến trúc phần mềm, phát triển ứng dụng di động, điện toán đám mây và quy trình DevOps.</p>
+            <a href="nganh-hoc.html#ktpm" class="btn-card">Chi tiết ngành học</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <figure>
+            <img src="img/card_khmt.webp" alt="Phòng nghiên cứu Khoa học Máy tính và Trí tuệ nhân tạo" width="400" height="260" loading="lazy">
+            <figcaption>Mã ngành: 7480101 | Chỉ tiêu: 250</figcaption>
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Khoa học Máy tính</h3>
+            <p class="card-desc">Nghiên cứu các thuật toán nâng cao, học máy (Machine Learning), xử lý ngôn ngữ tự nhiên và phân tích dữ liệu lớn (Big Data).</p>
+            <a href="nganh-hoc.html#khmt" class="btn-card">Chi tiết ngành học</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <figure>
+            <img src="img/card_attt.webp" alt="Trung tâm điều hành an toàn thông tin mạng" width="400" height="260" loading="lazy">
+            <figcaption>Mã ngành: 7480202 | Chỉ tiêu: 200</figcaption>
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">An toàn Thông tin</h3>
+            <p class="card-desc">Trang bị kiến thức phòng thủ không gian mạng, kiểm thử xâm nhập (Pen-test), mật mã học và bảo mật hệ thống thông tin doanh nghiệp.</p>
+            <a href="nganh-hoc.html#attt" class="btn-card">Chi tiết ngành học</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <figure>
+            <img src="img/card_httt.webp" alt="Sinh viên Hệ thống thông tin phân tích dữ liệu nghiệp vụ" width="400" height="260" loading="lazy">
+            <figcaption>Mã ngành: 7480104 | Chỉ tiêu: 200</figcaption>
+          </figure>
+          <div class="card-body">
+            <h3 class="card-title">Hệ thống Thông tin</h3>
+            <p class="card-desc">Giao thoa giữa công nghệ và nghiệp vụ quản trị kinh doanh, đào tạo chuyên gia phân tích nghiệp vụ (BA) và hệ thống ERP.</p>
+            <a href="nganh-hoc.html#httt" class="btn-card">Chi tiết ngành học</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TÍNH NĂNG CỘNG ĐIỂM: NẠP ĐỘNG AJAX FETCH DỮ LIỆU TỪ MEDIA.JSON -->
+    <section class="ajax-section" aria-labelledby="ajax-title">
+      <h2 id="ajax-title" class="section-title">Thư viện Đa phương tiện mở rộng (Nạp động qua AJAX)</h2>
+      <p style="font-size:0.9rem; color:#475569;">
+        Dữ liệu được nạp không đồng bộ thông qua hàm <code>fetch('media/media.json')</code> mà không làm tải lại trang, giúp tiết kiệm đến <strong>78%</strong> băng thông mạng.
+      </p>
+      <div id="ajaxList" class="ajax-list"></div>
+      <button id="btnLoadMore" class="btn-loadmore">Xem thêm video &amp; podcast</button>
+    </section>
+
+  </main>
+
+  <!-- 4. FOOTER TOÀN SITE -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Khoa Công nghệ Thông tin — IUH</h3>
+        <p>Trường Đại học Công nghiệp Thành phố Hồ Chí Minh</p>
+        <p>Địa chỉ: Tòa nhà E, Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</p>
+        <p>Điện thoại: (028) 38940 390 - Ext: 167</p>
+        <p>Email: cntt@iuh.edu.vn</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Liên kết nhanh</h3>
+        <ul>
+          <li><a href="index.html">Trang chủ tuyển sinh</a></li>
+          <li><a href="nganh-hoc.html">Thông tin 4 ngành đào tạo</a></li>
+          <li><a href="video-detail.html">Trải nghiệm thực tế Phòng Lab</a></li>
+          <li><a href="sitemap.html">Sơ đồ cấu trúc site (Sitemap)</a></li>
+          <li><a href="sitemap.xml">Tệp sitemap.xml chuẩn SEO</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Thông tin Sinh viên thực hiện</h3>
+        <p><strong>Họ và tên:</strong> Vũ Hoàng Phát</p>
+        <p><strong>Mã số sinh viên:</strong> 21143011</p>
+        <p><strong>Học phần:</strong> Web Multimedia — Tuần 9</p>
+        <p><strong>Dự án:</strong> miniproject-cntt-iuh</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Khoa CNTT — Đại học Công nghiệp TP.HCM. Bản quyền thuộc về Vũ Hoàng Phát (MSSV: 21143011).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

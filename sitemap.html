@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sơ đồ cấu trúc site trực quan (HTML Sitemap) của Cổng thông tin Khoa CNTT - Đại học Công nghiệp TP.HCM.">
+  <title>Sơ đồ site — Khoa Công nghệ Thông tin IUH</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <!-- 1. HEADER CHÍNH & ĐIỀU HƯỚNG -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-link" aria-label="Trang chủ Khoa CNTT IUH">
+        <img src="img/logo_iuh.svg" alt="Logo Khoa Công nghệ Thông tin IUH" class="brand-logo" width="280" height="60">
+      </a>
+      <button class="nav-toggle" aria-label="Mở menu điều hướng" aria-expanded="false">☰</button>
+      <nav aria-label="Điều hướng chính của trang">
+        <ul class="nav-menu">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="nganh-hoc.html">Ngành đào tạo</a></li>
+          <li><a href="video-detail.html">Thư viện Media</a></li>
+          <li><a href="sitemap.html" aria-current="page">Sơ đồ site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. BREADCRUMB PHÂN CẤP -->
+  <div class="breadcrumb-container" aria-label="Đường dẫn phân cấp">
+    <ol class="breadcrumb-list">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li aria-current="page">Sơ đồ site trực quan</li>
+    </ol>
+  </div>
+
+  <!-- 3. NỘI DUNG CHÍNH (MAIN) -->
+  <main class="main-content">
+    
+    <section aria-labelledby="sitemap-title">
+      <h1 id="sitemap-title" class="section-title">Sơ đồ Cấu trúc Site Trực quan (HTML Sitemap)</h1>
+      <p style="font-size:1rem; color:#475569; margin-bottom:1.5rem;">
+        Cung cấp danh mục toàn diện các trang và phân cấp điều hướng của website nhằm hỗ trợ người dùng định vị nội dung nhanh chóng và tối ưu khả năng lập chỉ mục của máy tìm kiếm.
+      </p>
+
+      <!-- CÂY CẤU TRÚC PHÂN CẤP -->
+      <div class="sitemap-tree" style="margin-bottom:2rem;">
+        <h2 style="font-size:1.2rem; color:#1F4E79; margin-bottom:0.75rem;">Cây Phân cấp Điều hướng</h2>
+        <ul>
+          <li>
+            <strong><a href="index.html">1. Trang chủ Tuyển sinh (index.html)</a></strong> — Cổng chào đón, Banner Hero đáp ứng, Video giới thiệu phòng Lab và Podcast phát thanh số.
+            <ul>
+              <li>
+                <strong><a href="nganh-hoc.html">2. Ngành đào tạo (nganh-hoc.html)</a></strong> — Thông tin 4 chương trình đào tạo chính quy đạt chuẩn AUN-QA:
+                <ul>
+                  <li><a href="nganh-hoc.html#ktpm">2.1. Kỹ thuật Phần mềm (Software Engineering)</a></li>
+                  <li><a href="nganh-hoc.html#khmt">2.2. Khoa học Máy tính (Computer Science)</a></li>
+                  <li><a href="nganh-hoc.html#attt">2.3. An toàn Thông tin (Information Security)</a></li>
+                  <li><a href="nganh-hoc.html#httt">2.4. Hệ thống Thông tin (Information Systems)</a></li>
+                </ul>
+              </li>
+              <li>
+                <strong><a href="video-detail.html">3. Thư viện Media (video-detail.html)</a></strong> — Video 16:9, phụ đề WebVTT rời, thanh tiến độ JS và nạp ngầm danh sách qua AJAX.
+              </li>
+              <li>
+                <strong><a href="sitemap.html" aria-current="page">4. Sơ đồ site trực quan (sitemap.html)</a></strong> — Trang hiện tại.
+              </li>
+              <li>
+                <strong><a href="sitemap.xml">5. Tệp chỉ mục máy tìm kiếm (sitemap.xml)</a></strong> — Tệp cấu trúc XML phục vụ Google Search Console.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BẢNG CHỨNG MINH QUY TẮC <= 3 CLICKS -->
+      <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px; padding:1.25rem;">
+        <h2 style="font-size:1.15rem; color:#1F4E79; margin-bottom:0.5rem;">Bảng Chứng minh Quy tắc &le; 3 lần Nhấp chuột (Rule of 3 Clicks)</h2>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.875rem; text-align:left;">
+            <thead>
+              <tr style="background:#1F4E79; color:#fff;">
+                <th style="padding:0.6rem 0.8rem; border:1px solid #CBD5E1;">Trang đích</th>
+                <th style="padding:0.6rem 0.8rem; border:1px solid #CBD5E1;">Đường đi từ Trang chủ (Navigation Flow)</th>
+                <th style="padding:0.6rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">Số lần nhấp</th>
+                <th style="padding:0.6rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">Đánh giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; font-weight:600;">Ngành đào tạo</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1;">Trang chủ &rarr; Click Menu "Ngành đào tạo"</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">1 click</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center; color:#16A34A; font-weight:bold;">Đạt (&le; 3)</td>
+              </tr>
+              <tr style="background:#F8FAFC;">
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; font-weight:600;">Thư viện Media</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1;">Trang chủ &rarr; Click Menu "Thư viện Media"</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">1 click</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center; color:#16A34A; font-weight:bold;">Đạt (&le; 3)</td>
+              </tr>
+              <tr>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; font-weight:600;">Chi tiết Ngành KTPM</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1;">Trang chủ &rarr; Click Nút "Chi tiết ngành học"</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">1 click</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center; color:#16A34A; font-weight:bold;">Đạt (&le; 3)</td>
+              </tr>
+              <tr style="background:#F8FAFC;">
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; font-weight:600;">Xem chi tiết Video Lab</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1;">Trang chủ &rarr; Thư viện Media &rarr; Click Video</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">2 clicks</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center; color:#16A34A; font-weight:bold;">Đạt (&le; 3)</td>
+              </tr>
+              <tr>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; font-weight:600;">Sơ đồ site HTML</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1;">Trang chủ &rarr; Click Menu hoặc Footer "Sơ đồ site"</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center;">1 click</td>
+                <td style="padding:0.5rem 0.8rem; border:1px solid #CBD5E1; text-align:center; color:#16A34A; font-weight:bold;">Đạt (&le; 3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 4. FOOTER TOÀN SITE -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Khoa Công nghệ Thông tin — IUH</h3>
+        <p>Trường Đại học Công nghiệp Thành phố Hồ Chí Minh</p>
+        <p>Địa chỉ: Tòa nhà E, Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM</p>
+        <p>Điện thoại: (028) 38940 390 - Ext: 167</p>
+        <p>Email: cntt@iuh.edu.vn</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Liên kết nhanh</h3>
+        <ul>
+          <li><a href="index.html">Trang chủ tuyển sinh</a></li>
+          <li><a href="nganh-hoc.html">Thông tin 4 ngành đào tạo</a></li>
+          <li><a href="video-detail.html">Trải nghiệm thực tế Phòng Lab</a></li>
+          <li><a href="sitemap.html">Sơ đồ cấu trúc site (Sitemap)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Thông tin Sinh viên thực hiện</h3>
+        <p><strong>Họ và tên:</strong> Vũ Hoàng Phát</p>
+        <p><strong>Mã số sinh viên:</strong> 21143011</p>
+        <p><strong>Học phần:</strong> Web Multimedia — Tuần 9</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Khoa CNTT — Đại học Công nghiệp TP.HCM. Bản quyền thuộc về Vũ Hoàng Phát (MSSV: 21143011).</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

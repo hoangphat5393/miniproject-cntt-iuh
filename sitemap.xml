@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://hoangphat5393.github.io/miniproject-cntt-iuh/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://hoangphat5393.github.io/miniproject-cntt-iuh/nganh-hoc.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hoangphat5393.github.io/miniproject-cntt-iuh/video-detail.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hoangphat5393.github.io/miniproject-cntt-iuh/sitemap.html</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>
